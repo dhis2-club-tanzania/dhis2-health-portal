@@ -2,10 +2,10 @@ import 'package:dhis2_health_portal/home/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(CoreAppEntry());
 }
 
-class MyApp extends StatelessWidget {
+class CoreAppEntry extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

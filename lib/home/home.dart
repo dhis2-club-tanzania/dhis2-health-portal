@@ -10,19 +10,69 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    return MaterialApp(
+      home: HomePageContainer()
+    );
+  }
+}
+
+class HomePageContainer extends StatefulWidget {
+  @override
+  _HomePageContainer createState() => _HomePageContainer();
+}
+class _HomePageContainer extends State {
+  String currentPageTitle = 'Home';
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text('Portal home page'),
+          title: Text(currentPageTitle),
         ),
-        body: Center()
+        body: Center(),
+      drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Dashboard'),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              title: Text('Home'),
+              onTap: () {
+                setState(() {
+                  currentPageTitle = 'Home';
+                });
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Dashboard'),
+              onTap: () {
+                setState(() {
+                  currentPageTitle = 'Dashboard';
+                });
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Downloads'),
+              onTap: () {
+                setState(() {
+                  currentPageTitle = 'Downloads';
+                });
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
