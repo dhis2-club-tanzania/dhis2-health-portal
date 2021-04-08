@@ -1,5 +1,8 @@
+import 'package:dhis2_health_portal/shared/components/topTitle.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class HomePage extends StatefulWidget {
 
@@ -22,61 +25,9 @@ class HomePageContainer extends StatefulWidget {
 }
 class _HomePageContainer extends State {
   String currentPageTitle = 'Home';
+  String webTitle = 'TANZANIA NATIONAL HEALTH PORTAL';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(currentPageTitle),
-        ),
-        body: Center(),
-      drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            Container(
-             height: 140.0,
-             child: DrawerHeader(
-               child: Text('Menu', style: TextStyle(color: Colors.white,
-                   fontSize: 20)),
-               decoration: BoxDecoration(
-                 color: Colors.blue
-               ),
-             ),
-            ),
-            ListTile(
-              title: Text('Home'),
-              onTap: () {
-                setState(() {
-                  currentPageTitle = 'Home';
-                });
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Dashboard'),
-              onTap: () {
-                setState(() {
-                  currentPageTitle = 'Dashboard';
-                });
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Downloads'),
-              onTap: () {
-                setState(() {
-                  currentPageTitle = 'Downloads';
-                });
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
-    );
+    
   }
 }
