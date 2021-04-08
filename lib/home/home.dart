@@ -37,11 +37,15 @@ class _HomePageContainer extends State {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
-              child: Text('Dashboard'),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
+            Container(
+             height: 140.0,
+             child: DrawerHeader(
+               child: Text('Menu', style: TextStyle(color: Colors.white,
+                   fontSize: 20)),
+               decoration: BoxDecoration(
+                 color: Colors.blue
+               ),
+             ),
             ),
             ListTile(
               title: Text('Home'),
